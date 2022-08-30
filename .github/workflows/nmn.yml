@@ -8,6 +8,7 @@ jobs:
 
   steps:
     name: print_word
+    uses: .github/workflows/nmn.yml
     run: |
       echo "yahoo"
       echo "yehey"
