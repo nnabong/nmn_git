@@ -12,3 +12,4 @@ jobs:
     run: |
       echo "yahoo"
       echo "yehey"
+      echo "buh-bye"
