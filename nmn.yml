@@ -1,0 +1,14 @@
+#nmn-test
+
+name: test-yaml_file
+
+on: [push]
+
+jobs:
+
+  steps:
+    name: print_word
+    uses: actions/checkout@v2
+    run: |
+      echo "yahoo"
+      echo "yehey"
