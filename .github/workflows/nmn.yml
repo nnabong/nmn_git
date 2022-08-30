@@ -1,6 +1,6 @@
 #nmn-test
 
-name: test-yaml_file
+name: nmn.yml
 
 on: [push]
 
