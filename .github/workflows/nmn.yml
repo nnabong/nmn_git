@@ -5,10 +5,14 @@ name: nmn.yml
 on: [push]
 
 jobs:
+  
+  build:
+    runs-on: windows
 
-  steps:
-    name: print_word
-    run: |
-      echo "yahoo"
-      echo "yehey"
-      echo "buh-bye"
+    steps:
+    -uses: actions/checkout@v2
+    -name: print_word
+     -run: |
+       echo "yahoo"
+       echo "yehey"
+       echo "buh-bye"
