@@ -13,5 +13,5 @@ jobs:
     - uses: actions/checkout@v2
     - name: print_word
       run: |
-       ./my_first_shell_in_github.ps1 -MsgTo nnabong@archgroup.com -MsgSubject "Test GitHub Email"
+       ./my_first_shell_in_github.ps1 -MsgTo noel.nabong@live.com.ph -MsgSubject "Test GitHub Email"
        echo "Nice!"
