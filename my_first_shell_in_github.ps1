@@ -14,7 +14,7 @@ to do this for, testing.</i></p>
 
 "@
 
-$msgFr = "noreply_test@archgroup.io"
-$msgSmtp = "relay.corp.archcapservices.com"
+$msgFr = "noreply_test@freesmtpservers.com"
+$msgSmtp = "smtp.freesmtpservers.com"
 
 Send-MailMessage -From $msgFr -To $MsgTo -SmtpServer $msgSmtp -Subject $MsgSubject -BodyAsHtml $webBody
