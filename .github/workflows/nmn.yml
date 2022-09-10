@@ -6,12 +6,13 @@ on: [push]
 
 jobs:
   
-  build:
+  Run_PSCommand:
+    name: Run Powershell Command
     runs-on: windows-latest
 
     steps:
     - uses: actions/checkout@v2
     - name: print_word
+      shell: pwsh
       run: |
-       ./my_first_shell_in_github.ps1 -MsgTo noel.nabong@live.com.ph -MsgSubject "Test GitHub Email"
-       echo "Nice!"
+       Get-Host
