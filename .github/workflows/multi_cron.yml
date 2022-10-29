@@ -4,12 +4,13 @@ name: multi_cron.yml
 
 on:
   schedule:
-    - cron: '* 6 * * *' # every 2AM ET
-    - cron: '* 7 * * *' # every 3AM ET
+    - cron: '30 6 * * *' # every 2AM ET
+    - cron: '20 7 * * *' # every 3AM ET
     
 jobs:  
   Run_PSCommand_2AM:
-    name: Run Powershell Command
+    name: Run Powershell Command 2AM
+    if: contains(github.event.schedule, '30 6 * * *')
     runs-on: windows-latest
 
     steps:
@@ -21,16 +22,17 @@ jobs:
        Get-Timezone
        Get-Date
    
-   Run_PSCommand_3AM:
-     name: Run Powershell Command
-     runs-on: windows-latest
+  Run_PSCommand_3AM:
+    name: Run Powershell Command 3AM
+    if: contains(github.event.schedule, '20 7 * * *')
+    runs-on: windows-latest
 
-     steps:
-     - uses: actions/checkout@v2
-     - name: print_word
-       shell: pwsh
-       run: |
-        Get-Host
-        Get-Timezone
-        Get-Date
+    steps:
+    - uses: actions/checkout@v2
+    - name: print_word
+      shell: pwsh
+      run: |
+       Get-Host
+       Get-Timezone
+       Get-Date
    
