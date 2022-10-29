@@ -1,1 +1,36 @@
+#nmn-test
 
+name: multi_cron.yml
+
+on:
+  schedule:
+    - cron: '* 6 * * *' # every 2AM ET
+    - cron: '* 7 * * *' # every 3AM ET
+    
+jobs:  
+  Run_PSCommand_2AM:
+    name: Run Powershell Command
+    runs-on: windows-latest
+
+    steps:
+    - uses: actions/checkout@v2
+    - name: print_word
+      shell: pwsh
+      run: |
+       Get-Host
+       Get-Timezone
+       Get-Date
+   
+   Run_PSCommand_3AM:
+     name: Run Powershell Command
+     runs-on: windows-latest
+
+     steps:
+     - uses: actions/checkout@v2
+     - name: print_word
+       shell: pwsh
+       run: |
+        Get-Host
+        Get-Timezone
+        Get-Date
+   
