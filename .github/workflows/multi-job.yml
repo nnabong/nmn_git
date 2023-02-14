@@ -25,7 +25,8 @@ jobs:
               $currentDir = $pwd
               cd AMIS/product/prod1/common/scripts
               
-              $CSVPath = $currentDir + "AMIS/product/prod2/prod2.csv"
+              $CSVPath = $currentDir + "/AMIS/product/prod2/prod2.csv"
+              $CSVPath
               
               ./prod1.ps1 -workingDirectory $CSVPath
   
