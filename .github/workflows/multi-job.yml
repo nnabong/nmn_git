@@ -27,8 +27,9 @@ jobs:
               
               $CSVPath = Join-Path $currentDir "/AMIS/product/prod2/prod2.csv"
               $CSVPath
-              
-              ./prod1.ps1 -workingDirectory $CSVPath
+              $empTypeValues = Import-Csv $CSVPath
+              $empTypePerson = $empTypeValues | Where-Object { $_.Column4 -eq "Person" } | select -ExpandProperty Column1           
+              ./prod1.ps1 -workingDirectory $empTypePerson
   
     Print_in_screen_AEIS:
       name: Print - AEIS
