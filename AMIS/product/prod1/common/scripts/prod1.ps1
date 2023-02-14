@@ -1,6 +1,6 @@
 Param (
 
-  [string]$workingDirectory
+  [string[]]$workingDirectory
 
 )
 
@@ -11,3 +11,4 @@ Write-Host "This is Prod1"
 
 Write-Host "Imported data below:"
 $workingDirectory
+$workingDirectory | gm
