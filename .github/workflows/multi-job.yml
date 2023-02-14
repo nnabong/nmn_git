@@ -22,7 +22,7 @@ jobs:
           run: |
               write-host "this is for ACS_AGSO"
               write-host "$($pwd)"
-              cd /AMIS/product/prod1/common/scripts
+              cd AMIS/product/prod1/common/scripts
               
               ./prod1.ps1
   
