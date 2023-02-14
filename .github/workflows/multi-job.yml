@@ -2,13 +2,13 @@ name: ILM - Notification - Inactive User Accounts
 
 on:
   workflow_dispatch:
-    - inputs:
-      - Entity:
-        - Description: "Please provide Entity - ACS_AGSO | AEIS | AGMS | AIGI | ARC_ARF | ARE_ARL | AMIS"
-        - Required: true
+    inputs:
+      Entity:
+        description: "Please provide Entity - ACS_AGSO | AEIS | AGMS | AIGI | ARC_ARF | ARE_ARL | AMIS"
+        required: true
 
 jobs:
-    Print in screen ACS_AGSO:
+    Print_in_screen_ACS_AGSO:
       name: Print - ACS_AGSO
       #if: contains(github.event.schedule, '30 21 5 * 1')
       #if: contains(github.event.inputs.Entity, 'ACS_AGSO')
@@ -25,7 +25,7 @@ jobs:
           run: |
             write-host "this is for ACS_AGSO"
   
-    Print in screen AEIS:
+    Print_in_screen_AEIS:
       name: Print - AEIS
       runs-on: windows-latest
     
