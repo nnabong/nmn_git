@@ -1,8 +1,6 @@
 name: ILM - Notification - Inactive User Accounts
 
 on:
-  schedule:
-    - cron:  '30 21 5 * 1'
   workflow_dispatch:
     - inputs:
       - Entity:
