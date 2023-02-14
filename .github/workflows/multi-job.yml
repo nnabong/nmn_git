@@ -21,6 +21,7 @@ jobs:
           shell: pwsh
           run: |
               write-host "this is for ACS_AGSO"
+              write-host "$($pwd)"
   
     Print_in_screen_AEIS:
       name: Print - AEIS
