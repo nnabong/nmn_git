@@ -1,2 +1,6 @@
-column1,column2,column3
-value1,value2,value3
+column1,column2,column3,column4
+value1,value2,value3,Person
+aaa,aaaa,aaaaa,Person
+xxx,xxxx,xxxxx,Mailbox
+jjj,jjjj,jjjjj,Person
+zzz,zzzz,zzzzz,Room
