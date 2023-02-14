@@ -21,9 +21,9 @@ jobs:
             ref: master
 
         - name: Run write-host
-          if: ${{(github.event.inputs.Entity == ACS_AGSO}}
+          if: ${{(github.event.inputs.Entity == 'ACS_AGSO'}}
           run: |
-            write-host "this is for ACS_AGSO"
+              write-host "this is for ACS_AGSO"
   
     Print_in_screen_AEIS:
       name: Print - AEIS
@@ -35,7 +35,7 @@ jobs:
             ref: master
             
         - name: Run write-host
-          if: ${{(github.event.inputs.Entity == AEIS}}
+          if: ${{(github.event.inputs.Entity == 'AEIS'}}
           run: |
             write-host "this is for AEIS"        
         
