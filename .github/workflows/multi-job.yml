@@ -11,26 +11,26 @@ jobs:
     Print_in_screen_ACS_AGSO:
       name: Print - ACS_AGSO
       #if: contains(github.event.schedule, '30 21 5 * 1')
-      #if: contains(github.event.inputs.Entity, 'ACS_AGSO')
+      if: ${{ github.event.inputs.Entity == 'ACS_AGSO' }}
       runs-on: windows-latest
       timeout-minutes: 180
 
       steps:
         - uses: actions/checkout@v2
         - name: Run write-host
-          if: ${{ github.event.inputs.Entity == 'ACS_AGSO' }}
           shell: pwsh
           run: |
               write-host "this is for ACS_AGSO"
   
     Print_in_screen_AEIS:
       name: Print - AEIS
+      if: ${{ github.event.inputs.Entity == 'AEIS' }}
       runs-on: windows-latest
+      timeout-minutes: 180
     
       steps:
         - uses: actions/checkout@v2          
         - name: Run write-host
-          if: ${{ github.event.inputs.Entity == 'AEIS' }}
           shell: pwsh
           run: |
             write-host "this is for AEIS"        
