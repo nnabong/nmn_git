@@ -1,6 +1,6 @@
 Param (
 
-  [string]workingDirectory
+  [string]$workingDirectory
 
 )
 
