@@ -22,9 +22,9 @@ jobs:
           run: |
               write-host "this is for ACS_AGSO"
               write-host "$($pwd)"
-              cd /AMIS/product/product1/common/scripts
+              cd /AMIS/product/prod1/common/scripts
               
-              ./product1.ps1
+              ./prod1.ps1
   
     Print_in_screen_AEIS:
       name: Print - AEIS
