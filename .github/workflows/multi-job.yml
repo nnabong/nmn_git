@@ -17,11 +17,9 @@ jobs:
 
       steps:
         - uses: actions/checkout@v2
-          with:
-            ref: master
-
         - name: Run write-host
           if: ${{ github.event.inputs.Entity == 'ACS_AGSO' }}
+          shell: pwsh
           run: |
               write-host "this is for ACS_AGSO"
   
@@ -30,12 +28,10 @@ jobs:
       runs-on: windows-latest
     
       steps:
-        - uses: actions/checkout@v2
-          with:
-            ref: master
-            
+        - uses: actions/checkout@v2          
         - name: Run write-host
           if: ${{ github.event.inputs.Entity == 'AEIS' }}
+          shell: pwsh
           run: |
             write-host "this is for AEIS"        
         
