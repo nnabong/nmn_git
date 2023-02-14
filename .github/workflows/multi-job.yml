@@ -22,9 +22,12 @@ jobs:
           run: |
               write-host "this is for ACS_AGSO"
               write-host "$($pwd)"
+              $currentDir = $pwd
               cd AMIS/product/prod1/common/scripts
               
-              ./prod1.ps1
+              $CSVPath = $currentDir + "AMIS/product/prod2/prod2.csv"
+              
+              ./prod1.ps1 -workingDirectory $CSVPath
   
     Print_in_screen_AEIS:
       name: Print - AEIS
