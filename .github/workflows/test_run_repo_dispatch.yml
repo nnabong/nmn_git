@@ -8,8 +8,6 @@ on:
       ]
 
 env:
-  owner: nnabong
-  repo: nmn_git
   app_name:  ${{ github.event.client_payload.app_name }}
   payload: ${{ toJSON(github.event.client_payload) }}
   ticket_number: ${{ github.event.client_payload.servicenow_details.ticket_number }}
@@ -22,7 +20,7 @@ jobs:
     ## JOB: Create Azure App Registration
     azure_ad_app_registration:
       name: Create Azure App Registration
-      runs-on: [windows]
+      runs-on: windows-latest
       timeout-minutes: 20
       defaults:
         run:
