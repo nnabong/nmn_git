@@ -1,0 +1,40 @@
+name: Test Run - Repository Dispatch
+
+on:
+  repository_dispatch:
+    types:
+      [
+        test_run_repo_dispatch,
+      ]
+
+env:
+  owner: nnabong
+  repo: nmn_git
+  payload: ${{ toJSON(github.event.client_payload) }}
+  snow_instance: ${{ github.event.client_payload.servicenow_details.snow_instance }}
+  ticket_number: ${{ github.event.client_payload.servicenow_details.ticket_number }}
+  working-directory: /opt/github-action
+  ANSIBLE_FORCE_COLOR: '1'
+
+  app_name:  ${{ github.event.client_payload.app_name }}
+  payload: ${{ toJSON(github.event.client_payload) }}
+  ticket_number: ${{ github.event.client_payload.servicenow_details.ticket_number }}
+  snow_instance: ${{ github.event.client_payload.servicenow_details.snow_instance }}
+  working-directory: /opt/github-action
+  ANSIBLE_FORCE_COLOR: '1'
+
+
+jobs:
+    ## JOB: Create Azure App Registration
+    azure_ad_app_registration:
+      name: Create Azure App Registration
+      runs-on: [windows]
+      timeout-minutes: 20
+      defaults:
+        run:
+          working-directory: ${{ env.working-directory }}
+
+      steps:
+        - name: Echo out the input variables
+          run: |
+            echo 'client_payload: ${{ env.payload }}'
