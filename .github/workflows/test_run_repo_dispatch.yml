@@ -12,7 +12,6 @@ env:
   payload: ${{ toJSON(github.event.client_payload) }}
   ticket_number: ${{ github.event.client_payload.servicenow_details.ticket_number }}
   snow_instance: ${{ github.event.client_payload.servicenow_details.snow_instance }}
-  working-directory: /opt/github-action
   ANSIBLE_FORCE_COLOR: '1'
 
 
@@ -22,10 +21,6 @@ jobs:
       name: Create Azure App Registration
       runs-on: windows-latest
       timeout-minutes: 20
-      defaults:
-        run:
-          working-directory: ${{ env.working-directory }}
-
       steps:
         - name: Echo out the input variables
           run: |
