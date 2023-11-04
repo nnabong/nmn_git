@@ -10,12 +10,6 @@ on:
 env:
   owner: nnabong
   repo: nmn_git
-  payload: ${{ toJSON(github.event.client_payload) }}
-  snow_instance: ${{ github.event.client_payload.servicenow_details.snow_instance }}
-  ticket_number: ${{ github.event.client_payload.servicenow_details.ticket_number }}
-  working-directory: /opt/github-action
-  ANSIBLE_FORCE_COLOR: '1'
-
   app_name:  ${{ github.event.client_payload.app_name }}
   payload: ${{ toJSON(github.event.client_payload) }}
   ticket_number: ${{ github.event.client_payload.servicenow_details.ticket_number }}
