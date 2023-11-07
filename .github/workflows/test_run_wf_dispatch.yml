@@ -1,4 +1,4 @@
-name: Test Run - Repository Dispatch
+name: Test Run - Workflow Dispatch
 
 on:
   workflow_dispatch:
@@ -7,7 +7,7 @@ jobs:
     ## JOB: Create Azure App Registration
     azure_ad_app_registration:
       name: Create Azure App Registration
-      runs-on: ubuntu-latest
+      runs-on: windows-latest
       timeout-minutes: 20
 
       steps:
@@ -20,4 +20,4 @@ jobs:
           run: |
             echo $(pwd)
             cd /home/runner/work/nmn_git/nmn_git
-            ls -l
+            dir
