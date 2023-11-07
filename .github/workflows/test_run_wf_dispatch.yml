@@ -19,5 +19,4 @@ jobs:
         - name: Run Ansible for PS1
           run: |
             echo $(pwd)
-            cd /home/runner/work/nmn_git/nmn_git
             dir
