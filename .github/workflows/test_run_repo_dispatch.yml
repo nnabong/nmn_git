@@ -30,4 +30,4 @@ jobs:
         - name: Run Ansible for PS1
           run: |
             echo $(pwd)
-            ansible-playbook nmn_git\AMIS\product\prod2\test_ps1.yml
+            ansible-playbook /AMIS/product/prod2/test_ps1.yml
