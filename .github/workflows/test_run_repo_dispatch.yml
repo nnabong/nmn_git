@@ -30,6 +30,5 @@ jobs:
         - name: Run Ansible for PS1
           run: |
             echo $(pwd)
-            cd ..
-            echo $(pwd)
+            dir
             ansible-playbook AMIS/product/prod2/test_ps1.yml
