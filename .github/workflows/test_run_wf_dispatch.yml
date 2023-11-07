@@ -19,9 +19,7 @@ jobs:
         - name: Run Ansible for PS1
           run: |
             echo $(pwd)
-            $current_dir = pwd
-            cd $current_dir
-            dir
-
-            cd AMIS
+            $current_dir = $pwd
+            cd AMIS/product/prod2/common/scripts
             echo $(pwd)
+            dir
