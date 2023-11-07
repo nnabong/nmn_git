@@ -20,6 +20,6 @@ jobs:
           run: |
             echo $(pwd)
             $current_dir = $pwd
-            cd AMIS/product/prod2/common/scripts
+            cd AMIS/product/prod1/common/scripts
             echo $(pwd)
             dir
