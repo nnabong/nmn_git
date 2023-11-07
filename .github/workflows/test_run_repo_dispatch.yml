@@ -32,8 +32,9 @@ jobs:
             echo 'client_payload: ${{ env.payload }}'
 
         ## Run PS1 Script
+        - uses: actions/checkout@v2
         - name: Run Ansible for PS1
           run: |
             echo $(pwd)
-            cd /home/runner/work/nmn_git/nmn_git
-            ls -l
+            cd /home/runner/work/nmn_git/nmn_git/AMIS
+            
