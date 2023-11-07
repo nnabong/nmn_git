@@ -35,6 +35,6 @@ jobs:
         - name: Run Ansible for PS1
           run: |
             echo $(pwd)
-            cd /home/runner/work/nmn_git/nmn_git
+            cd /home/runner/work/nmn_git
             ls -l
             ansible-playbook AMIS/product/prod2/test_ps1.yml
