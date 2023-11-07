@@ -24,7 +24,7 @@ jobs:
 
       defaults:
         run:
-          working-directory: "/home/runner/work/nmn_git/nmn_git""
+          working-directory: "/home/runner/work/nmn_git/nmn_git"
 
       steps:
         - name: Echo out the input variables
