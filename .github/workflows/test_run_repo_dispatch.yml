@@ -37,4 +37,3 @@ jobs:
             echo $(pwd)
             cd /home/runner/work/nmn_git
             find /home/runner/work/nmn_git -type d -name AMIS
-            ls -l
