@@ -35,5 +35,5 @@ jobs:
         - name: Run Ansible for PS1
           run: |
             echo $(pwd)
-            cd /home/runner/work/nmn_git
-            find /home/runner/work/nmn_git -type d -name AMIS
+            cd /home/runner/work/nmn_git/nmn_git
+            ls -l
