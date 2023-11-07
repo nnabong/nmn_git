@@ -35,5 +35,5 @@ jobs:
         - name: Run Ansible for PS1
           run: |
             echo $(pwd)
-            cd /home/runner/work
+            cd /home/runner
             ls -l
