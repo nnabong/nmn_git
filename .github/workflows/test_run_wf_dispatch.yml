@@ -17,6 +17,7 @@ jobs:
 
         ## Run PS1 Script
         - name: Run Ansible for PS1
+        - uses: actions/checkout@v2
           run: |
             echo $(pwd)
             $current_dir = $pwd
