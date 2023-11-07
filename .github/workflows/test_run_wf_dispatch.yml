@@ -22,3 +22,6 @@ jobs:
             $current_dir = pwd
             cd $current_dir
             dir
+
+            cd AMIS
+            echo $(pwd)
