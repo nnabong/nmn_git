@@ -21,6 +21,11 @@ jobs:
       name: Create Azure App Registration
       runs-on: ubuntu-latest
       timeout-minutes: 20
+
+      defaults:
+        run:
+          working-directory: "/home/runner/work/nmn_git/nmn_git""
+
       steps:
         - name: Echo out the input variables
           run: |
