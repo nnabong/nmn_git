@@ -1,0 +1,22 @@
+---
+- hosts: localhost
+  gather_facts: false
+      
+  tasks:
+    - assert:
+    
+    - name: Display Input
+      debug: 
+        msg:
+          - "Distribution List name" 
+          - "Input Owners to add"
+          - "Input Owners to remove"
+          - "Input Members to add"
+          - "Input Members to remove"
+ 
+    - name: Run Test PS1 Script
+      test_ps1_script:
+
+      register: run
+
+    - debug: var=run
