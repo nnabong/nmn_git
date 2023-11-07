@@ -29,4 +29,6 @@ jobs:
         ## Run PS1 Script
         - name: Run Ansible for PS1
           run: |
+            cd nmn_git
+            echo '$PWD'
             ansible-playbook nmn_git\AMIS\product\prod2\test_ps1.yml
