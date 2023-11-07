@@ -1,0 +1,23 @@
+name: Test Run - Repository Dispatch
+
+on:
+  workflow_dispatch:
+
+jobs:
+    ## JOB: Create Azure App Registration
+    azure_ad_app_registration:
+      name: Create Azure App Registration
+      runs-on: ubuntu-latest
+      timeout-minutes: 20
+
+      steps:
+        - name: Echo out the input variables
+          run: |
+            echo 'testing Ubuntu'
+
+        ## Run PS1 Script
+        - name: Run Ansible for PS1
+          run: |
+            echo $(pwd)
+            cd /home/runner/work/nmn_git/nmn_git
+            ls -l
