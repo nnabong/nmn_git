@@ -16,8 +16,8 @@ jobs:
             echo 'testing Ubuntu'
 
         ## Run PS1 Script
-        - name: Run Ansible for PS1
         - uses: actions/checkout@v2
+        - name: Run Ansible for PS1
           run: |
             echo $(pwd)
             $current_dir = $pwd
