@@ -29,6 +29,8 @@ jobs:
           "AppID2023=$($AppID)" >> $env:GITHUB_OUTPUT
           "TenantID2023=$($TenantID)" >> $env:GITHUB_OUTPUT
 
+          echo "::add-mask::$AppID"
+
   prin_vars:
     name: Print Variables
     needs: [initialize_vars]
