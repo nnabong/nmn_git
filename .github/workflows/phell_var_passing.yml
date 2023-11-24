@@ -8,11 +8,7 @@ on: workflow_dispatch
 jobs:
   initialize_vars:
     name: Test Variables for use in subsequent Jobs
-    runs-on: windows-latest
-    outputs:
-      AppId: ${{ steps.initialize.outputs.AppID2023 }}
-      TenantId: ${{ steps.initialize.outputs.TenantID2023 }}
-    
+    runs-on: windows-latest    
     steps:
       - name: Initialize
         id: initialize
@@ -26,10 +22,10 @@ jobs:
           #echo "AppID=$($AppID)" | Out-File -FilePath $env:GITHUB_ENV -Append
           #echo "TenantID=$($TenantID)" | Out-File -FilePath $env:GITHUB_ENV -Append
 
-          "AppID2023=$($AppID)" >> $env:GITHUB_OUTPUT
-          "TenantID2023=$($TenantID)" >> $env:GITHUB_OUTPUT
+          "AppID2023=$($AppID)" >> $env:GITHUB_ENV
+          "TenantID2023=$($TenantID)" >> $env:GITHUB_ENV
 
-  prin_vars:
+  print_vars:
     name: Print Variables
     needs: [initialize_vars]
     runs-on: windows-latest
@@ -37,10 +33,8 @@ jobs:
     steps:
       - name: Print
         run: |
-          #$app = "${{ env.AppID2023 }}"
-          #$tenant = "${{ env.TenantID2023 }}"
-          
-          $app = "${{ needs.initialize_vars.outputs.AppId }}"
-          $tenant = "${{ needs.initialize_vars.outputs.TenantId }}"
+          $app = "${{ env.AppID2023 }}"
+          $tenant = "${{ env.TenantID2023 }}"
+  
           echo "$($app) and $($tenant)"
           echo $app.length
