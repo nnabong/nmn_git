@@ -18,7 +18,11 @@ jobs:
         id: initialize
         run: |
           $AppID = "Application1234"
-          $TenantID = "Tenant1234"
+          $TenantID = @(
+            "Tenant10001"
+            "Tenant20002",
+            "Tenant30003",
+          )
           #echo "AppID=$($AppID)" | Out-File -FilePath $env:GITHUB_ENV -Append
           #echo "TenantID=$($TenantID)" | Out-File -FilePath $env:GITHUB_ENV -Append
 
