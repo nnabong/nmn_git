@@ -6,16 +6,28 @@ name: nmn.yml
 on: workflow_dispatch
 
 jobs:
-  
-  Run_PSCommand:
-    name: Run Powershell Command
+  initialize_vars:
+    name: Initialize Variables for use in subsequent Jobs
+    runs-on: windows-latest
+    
+    steps:
+      - name: Initialize
+        id: initialize
+        run: |
+          $AppID = "Application1234"
+          $TenantID = "Tenant1234"
+
+          echo ::set-output name=AppID::$( $AppID)
+          echo ::set-output name=TenantID::$( $TenantID)
+          Write-Output "AppID=$($AppID)" >> $Env:GITHUB_OUTPUT
+          Write-Output "TenantID=$($TenantID)" >> $Env:GITHUB_OUTPUT
+
+  print_vars:
+    name: Print Variables
     runs-on: windows-latest
 
     steps:
-    - uses: actions/checkout@v2
-    - name: print_word
-      shell: pwsh
-      run: |
-       Get-Host
-       Get-Timezone
-       Get-Date
+      - name: Print
+        run: |
+          Write-Host "{{ steps.initialize.outputs.AppID }}"
+          Write-Host "{{ steps.initialize.outputs.TenantID }}"
