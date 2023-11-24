@@ -30,7 +30,10 @@ jobs:
     steps:
       - name: Print
         run: |
-          $app = "${{ env.AppID2023 }}"
-          $tenant = "${{ env.TenantID2023 }}"
+          #$app = "${{ env.AppID2023 }}"
+          #$tenant = "${{ env.TenantID2023 }}"
+          
+          $app = "${{ steps.initialize.env.AppID2023 }}"
+          $tenant = "${{ steps.initialize.env.TenantID2023 }}"
           echo "$($app) and $($tenant)"
           echo $app.length
