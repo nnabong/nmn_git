@@ -17,8 +17,6 @@ jobs:
           $AppID = "Application1234"
           $TenantID = "Tenant1234"
 
-          echo ::set-output name=AppID::$( $AppID)
-          echo ::set-output name=TenantID::$( $TenantID)
           Write-Output "AppID=$($AppID)" >> $Env:GITHUB_OUTPUT
           Write-Output "TenantID=$($TenantID)" >> $Env:GITHUB_OUTPUT
 
@@ -30,5 +28,5 @@ jobs:
     steps:
       - name: Print
         run: |
-          Write-Host "AppID: $({{ steps.initialize.outputs.AppID }})"
-          Write-Host "TenantID: $({{ steps.initialize.outputs.TenantID }})"
+          Write-Host "AppID: {{ steps.initialize.outputs.AppID }}"
+          Write-Host "TenantID: {{ steps.initialize.outputs.TenantID }}"
