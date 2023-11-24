@@ -21,7 +21,6 @@ jobs:
           $TenantID = "Tenant1234"
           #echo "AppID=$($AppID)" | Out-File -FilePath $env:GITHUB_ENV -Append
           #echo "TenantID=$($TenantID)" | Out-File -FilePath $env:GITHUB_ENV -Append
-          echo "::add-mask::$AppID"
 
           "AppID2023=$($AppID)" >> $env:GITHUB_OUTPUT
           "TenantID2023=$($TenantID)" >> $env:GITHUB_OUTPUT
