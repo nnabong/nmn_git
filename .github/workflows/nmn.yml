@@ -20,7 +20,7 @@ jobs:
           #echo "AppID=$($AppID)" | Out-File -FilePath $env:GITHUB_ENV -Append
           #echo "TenantID=$($TenantID)" | Out-File -FilePath $env:GITHUB_ENV -Append
 
-          "::add-mask::AppID2023"
+          echo "::add-mask::AppID2023"
 
           "AppID2023=$($AppID)" >> $env:GITHUB_ENV
           "TenantID2023=$($TenantID)" >> $env:GITHUB_ENV
