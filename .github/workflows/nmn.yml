@@ -17,8 +17,8 @@ jobs:
           $AppID = "Application1234"
           $TenantID = "Tenant1234"
 
-          Write-Output "AppID=$($AppID)" >> $Env:GITHUB_OUTPUT
-          Write-Output "TenantID=$($TenantID)" >> $Env:GITHUB_OUTPUT
+          "AppID=$($AppID)" >> $Env:GITHUB_OUTPUT
+          "TenantID=$($TenantID)" >> $Env:GITHUB_OUTPUT
 
   print_vars:
     name: Print Variables
