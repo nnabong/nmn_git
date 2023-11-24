@@ -28,5 +28,8 @@ jobs:
     steps:
       - name: Print
         run: |
-          Write-Host "AppID: {{ steps.initialize.outputs.AppID }}"
-          Write-Host "TenantID: {{ steps.initialize.outputs.TenantID }}"
+          $application = "{{ steps.initialize.outputs.AppID }}"
+          $tenant = "{{ steps.initialize.outputs.TenantID }}"
+
+          Write-Host "AppID: $($application)"
+          Write-Host "TenantID: $($tenant)"
