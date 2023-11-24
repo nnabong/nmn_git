@@ -17,8 +17,11 @@ jobs:
           $AppID = "Application1234"
           $TenantID = "Tenant1234"
 
-          echo "AppID=$($AppID)" | Out-File -FilePath $env:GITHUB_ENV -Append
-          echo "TenantID=$($TenantID)" | Out-File -FilePath $env:GITHUB_ENV -Append
+          #echo "AppID=$($AppID)" | Out-File -FilePath $env:GITHUB_ENV -Append
+          #echo "TenantID=$($TenantID)" | Out-File -FilePath $env:GITHUB_ENV -Append
+
+          "AppID=$($AppID)" >> $env:GITHUB_ENV
+          "TenantID=$($TenantID)" >> $env:GITHUB_ENV
           
       - name: Print
         run: |
