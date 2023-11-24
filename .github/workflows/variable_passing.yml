@@ -1,0 +1,30 @@
+#nmn-test
+
+name: variable_passing.yml
+
+#on: [push]
+on: workflow_dispatch
+
+jobs:
+  test_vars:
+    name: Test Variables for use in subsequent Jobs
+    runs-on: windows-latest
+    
+    steps:
+      - name: Initialize
+        id: initialize
+        run: |
+          $AppID = "Application1234"
+          $TenantID = "Tenant1234"
+          #echo "AppID=$($AppID)" | Out-File -FilePath $env:GITHUB_ENV -Append
+          #echo "TenantID=$($TenantID)" | Out-File -FilePath $env:GITHUB_ENV -Append
+          echo "::add-mask::$AppID"
+          "AppID2023=$($AppID)" >> $env:GITHUB_ENV
+          "TenantID2023=$($TenantID)" >> $env:GITHUB_ENV
+          
+      - name: Print
+        run: |
+          $app = "${{ env.AppID2023 }}"
+          $tenant = "${{ env.TenantID2023 }}"
+          echo "$($app) and $($tenant)"
+          echo $app.length
