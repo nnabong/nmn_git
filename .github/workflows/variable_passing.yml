@@ -9,6 +9,9 @@ jobs:
   initialize_vars:
     name: Test Variables for use in subsequent Jobs
     runs-on: windows-latest
+    outputs:
+      AppId: ${{ steps.initialize.outputs.AppID2023 }}
+      TenantId: ${{ steps.initialize.outputs.TenantID2023 }}
     
     steps:
       - name: Initialize
@@ -34,7 +37,7 @@ jobs:
           #$app = "${{ env.AppID2023 }}"
           #$tenant = "${{ env.TenantID2023 }}"
           
-          $app = "${{ steps.initialize.outputs.AppID2023 }}"
-          $tenant = "${{ steps.initialize.outputs.TenantID2023 }}"
+          $app = "${{ needs.initialize_vars.outputs.AppId }}"
+          $tenant = "${{ needs.initialize_vars.outputs.TenantId }}"
           echo "$($app) and $($tenant)"
           echo $app.length
