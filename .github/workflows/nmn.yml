@@ -24,10 +24,11 @@ jobs:
 
   print_vars:
     name: Print Variables
+    needs: [initialize_vars]
     runs-on: windows-latest
 
     steps:
       - name: Print
         run: |
-          Write-Host "{{ steps.initialize.outputs.AppID }}"
-          Write-Host "{{ steps.initialize.outputs.TenantID }}"
+          Write-Host "AppID: {{ steps.initialize.outputs.AppID }}"
+          Write-Host "TenantID: {{ steps.initialize.outputs.TenantID }}"
