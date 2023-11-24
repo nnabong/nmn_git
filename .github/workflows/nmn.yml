@@ -12,7 +12,6 @@ jobs:
     
     steps:
       - name: Initialize
-        id: initialize
         run: |
           $AppID = "Application1234"
           $TenantID = "Tenant1234"
