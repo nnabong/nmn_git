@@ -32,3 +32,4 @@ jobs:
           $tenant = "${{ env.TenantID2023 }}"
 
           echo "$($app) and $($tenant)"
+          echo $app.length
