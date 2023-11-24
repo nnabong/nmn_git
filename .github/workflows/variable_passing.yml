@@ -6,7 +6,7 @@ name: variable_passing.yml
 on: workflow_dispatch
 
 jobs:
-  test_vars:
+  initialize_vars:
     name: Test Variables for use in subsequent Jobs
     runs-on: windows-latest
     
@@ -21,7 +21,13 @@ jobs:
           echo "::add-mask::$AppID"
           "AppID2023=$($AppID)" >> $env:GITHUB_ENV
           "TenantID2023=$($TenantID)" >> $env:GITHUB_ENV
-          
+
+  prin_vars:
+    name: Print Variables
+    needs: [initialize_vars]
+    runs-on: windows-latest
+
+    steps:
       - name: Print
         run: |
           $app = "${{ env.AppID2023 }}"
