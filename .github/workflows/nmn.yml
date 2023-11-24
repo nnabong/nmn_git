@@ -24,6 +24,6 @@ jobs:
         run: |
 
           $app = "${{ env.AppID }}"
-          $tenant "${{ env.TenantID }}"
+          $tenant = "${{ env.TenantID }}"
 
           echo "$($app) and $($tenant)"
