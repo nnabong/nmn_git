@@ -1,0 +1,46 @@
+#nmn-test
+
+name: variable_passing.yml
+
+#on: [push]
+on: workflow_dispatch
+
+jobs:
+  initialize_vars:
+    name: Test Variables for use in subsequent Jobs
+    runs-on: windows-latest
+    outputs:
+      AppId: ${{ steps.initialize.outputs.AppID2023 }}
+      TenantId: ${{ steps.initialize.outputs.TenantID2023 }}
+    
+    steps:
+      - name: Initialize
+        id: initialize
+        run: |
+          $AppID = "Application1234"
+          $TenantID = @(
+            "Tenant10001",
+            "Tenant20002",
+            "Tenant30003"
+          )
+          #echo "AppID=$($AppID)" | Out-File -FilePath $env:GITHUB_ENV -Append
+          #echo "TenantID=$($TenantID)" | Out-File -FilePath $env:GITHUB_ENV -Append
+
+          "AppID2023=$($AppID)" >> $env:GITHUB_OUTPUT
+          "TenantID2023=$($TenantID)" >> $env:GITHUB_OUTPUT
+
+  prin_vars:
+    name: Print Variables
+    needs: [initialize_vars]
+    runs-on: windows-latest
+
+    steps:
+      - name: Print
+        run: |
+          #$app = "${{ env.AppID2023 }}"
+          #$tenant = "${{ env.TenantID2023 }}"
+          
+          $app = "${{ needs.initialize_vars.outputs.AppId }}"
+          $tenant = "${{ needs.initialize_vars.outputs.TenantId }}"
+          echo "$($app) and $($tenant)"
+          echo $app.length
