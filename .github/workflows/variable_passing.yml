@@ -26,8 +26,6 @@ jobs:
           #echo "AppID=$($AppID)" | Out-File -FilePath $env:GITHUB_ENV -Append
           #echo "TenantID=$($TenantID)" | Out-File -FilePath $env:GITHUB_ENV -Append
 
-          echo "::add-mask::$AppID"
-
           "AppID2023=$($AppID)" >> $env:GITHUB_OUTPUT
           "TenantID2023=$($TenantID)" >> $env:GITHUB_OUTPUT
 
@@ -41,6 +39,8 @@ jobs:
         run: |
           #$app = "${{ env.AppID2023 }}"
           #$tenant = "${{ env.TenantID2023 }}"
+
+          echo "::add-mask::$app"
           
           $app = "${{ needs.initialize_vars.outputs.AppId }}"
           $tenant = "${{ needs.initialize_vars.outputs.TenantId }}"
