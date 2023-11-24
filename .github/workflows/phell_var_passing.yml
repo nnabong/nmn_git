@@ -1,6 +1,6 @@
 #nmn-test
 
-name: variable_passing.yml
+name: pshell_var_passing.yml
 
 #on: [push]
 on: workflow_dispatch
