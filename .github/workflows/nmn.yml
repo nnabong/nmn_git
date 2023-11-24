@@ -33,3 +33,6 @@ jobs:
 
           Write-Host "AppID: $($application)"
           Write-Host "TenantID: $($tenant)"
+
+          echo "${{ env.AppID }}"
+          echo "${{ env.TenantID }}"
