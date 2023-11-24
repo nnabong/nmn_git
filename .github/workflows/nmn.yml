@@ -26,7 +26,7 @@ jobs:
       - name: Print
         run: |
 
-          $app = "${{ env.AppID }}"
-          $tenant = "${{ env.TenantID }}"
+          $app = "${{ env.AppID2023 }}"
+          $tenant = "${{ env.TenantID2023 }}"
 
           echo "$($app) and $($tenant)"
