@@ -1,18 +1,27 @@
-name: ENV VARIABLE TEST
-  
-on: [workflow_dispatch]
+#nmn-test
+
+name: nmn.yml
+
+#on: [push]
+on: workflow_dispatch
 
 jobs:
-  build:
-
+  test_vars:
+    name: Test Variables for use in subsequent Jobs
     runs-on: windows-latest
-
+    
     steps:
-    - name: Set the value
-      id: step_one
-      run: |
-        echo "action_state=yellow" | Out-File -FilePath $env:GITHUB_ENV -Append # no need for -Encoding utf8
-    - name: Use the value
-      id: step_two
-      run: |
-        echo "${{ env.action_state }}" # This will output 'yellow'
+      - name: Initialize
+        id: initialize
+        run: |
+          $AppID = "Application1234"
+          $TenantID = "Tenant1234"
+
+          echo "AppID=$($AppID)" | Out-File -FilePath $env:GITHUB_ENV -Append
+          echo "TenantID=$($TenantID)" | Out-File -FilePath $env:GITHUB_ENV -Append
+          
+      - name: Print
+        run: |
+
+          echo "${{ env.AppID }}"
+          echo "${{ env.TenantID }}"
