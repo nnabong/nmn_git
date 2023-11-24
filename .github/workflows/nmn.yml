@@ -20,8 +20,8 @@ jobs:
           #echo "AppID=$($AppID)" | Out-File -FilePath $env:GITHUB_ENV -Append
           #echo "TenantID=$($TenantID)" | Out-File -FilePath $env:GITHUB_ENV -Append
 
-          "AppID=$($AppID)" >> $env:GITHUB_ENV
-          "TenantID=$($TenantID)" >> $env:GITHUB_ENV
+          "AppID2023=$($AppID)" >> $env:GITHUB_ENV
+          "TenantID2023=$($TenantID)" >> $env:GITHUB_ENV
           
       - name: Print
         run: |
