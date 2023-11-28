@@ -37,7 +37,7 @@ jobs:
             echo $app_owners
 
         - name: Step 2
-          if: ${{ github.event.client_payload.app_owner.remove != '' }}
+          if: ${{ github.event.client_payload.app_name == '' }}
           run: |
             echo $app_owners.count
             echo 'yahoo!'
