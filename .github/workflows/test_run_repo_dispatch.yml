@@ -37,5 +37,5 @@ jobs:
 
             echo $app_owners
 
-
+            echo 'count: $app_owners.count'
 
