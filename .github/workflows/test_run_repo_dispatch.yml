@@ -40,4 +40,4 @@ jobs:
           if: ${{ github.event.client_payload.app_owner.remove != '' }}
           run: |
             echo $app_owners.count
-
+            echo 'yahoo!'
