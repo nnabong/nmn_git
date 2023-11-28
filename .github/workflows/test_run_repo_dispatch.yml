@@ -20,7 +20,7 @@ jobs:
     ## JOB: Create Azure App Registration
     azure_ad_app_registration:
       name: Create Azure App Registration
-      runs-on: ubuntu-latest
+      runs-on: ubuntu-latest,windows-latest
       timeout-minutes: 20
 
       defaults:
