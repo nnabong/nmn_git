@@ -31,7 +31,7 @@ jobs:
             echo 'App Name again = ${{ github.event.client_payload.app_name }}'
             echo 'App Owner = ${{ join(github.event.client_payload.app_owner, ',') }}'
 
-            $app_owners = '${{ env.app_owner }}'
+            [array]$app_owners = '${{ env.app_owner }}'
 
             echo $app_owners.gettype()
             
