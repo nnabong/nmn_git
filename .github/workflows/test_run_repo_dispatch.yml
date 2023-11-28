@@ -36,7 +36,7 @@ jobs:
 
             echo $app_owners
 
-            [string[]]$app_owners = $app_owners.split(",")
+            [string[]]$app_owners = $app_owners.split(" ")
 
             echo $app_owners.gettype()
 
