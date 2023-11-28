@@ -32,7 +32,7 @@ jobs:
             echo 'client_payload: ${{ env.payload }}'
             echo 'App Name = ${{ env.app_name }}'
             echo 'App Name again = ${{ github.event.client_payload.app_name }}'
-            echo 'App Owner = ${{ join(github.event.client_payload.app_owner, ',') }}'
+            echo 'App Owner = ${{ split(github.event.client_payload.app_owner, ',') }}'
 
             $app_owners = '${{ github.event.client_payload.app_owner }}'
 
