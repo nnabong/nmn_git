@@ -30,7 +30,8 @@ jobs:
         - name: Echo out the input variables
           run: |
             echo 'client_payload: ${{ env.payload }}'
-            echo 'App Name = ${{ env.payload.app_name }}'
+            echo 'App Name = ${{ env.app_name }}'
+            echo 'App Name again = ${{ github.event.client_payload.app_name }}'
 
         ## Run PS1 Script
         - uses: actions/checkout@v2
