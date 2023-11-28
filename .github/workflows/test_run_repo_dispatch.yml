@@ -45,7 +45,7 @@ jobs:
             echo 'App Owner = ${{ join(github.event.client_payload.app_owner.remove, ',') }}'
 
         - name: Step 2
-          if: ${{ join(github.event.client_payload.app_owner.add, ',') != '' }}
+          if: ${{ join(github.event.client_payload.app_owner.remove, ',') != '' }}
           run: |
             echo $app_owners.count
             echo 'yahoo!'
