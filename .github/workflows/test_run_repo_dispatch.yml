@@ -34,7 +34,8 @@ jobs:
             [array]$app_owners = '${{ env.app_owner }}'
 
             echo $app_owners.gettype()
-            
+
+            echo $app_owners
 
 
 
