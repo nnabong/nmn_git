@@ -49,3 +49,11 @@ jobs:
           run: |
             echo $app_owners.count
             echo 'yahoo!'
+
+            echo 'App Secret = ${{ github.event.client_payload.app_secret_duration }}'
+
+            $app_secret = "${{ github.event.client_payload.app_secret_duration }}"
+
+            echo $app_secret.gettype()
+
+            echo $app_secret
