@@ -17,5 +17,3 @@ jobs:
 
             echo $SourceGroup
             echo $TargetGroup
-
-            "TargetGroup=$($TargetGroup)" >> $env:GITHUB_ENV
