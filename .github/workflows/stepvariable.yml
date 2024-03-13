@@ -1,0 +1,41 @@
+name: Sync DL Members AMIS - All
+
+on:
+  schedule:
+    - cron: '0 20 * * *'  # run every day @ 12AM
+  workflow_dispatch:
+
+jobs:
+    Sync_DL_Members:
+      name: Sync DL Members AMIS - All
+
+      steps:
+        - uses: actions/checkout@v3
+
+        - name: Run Sync-DLMembers.ps1
+          run: |
+            $SourceGroup = "AMIS - All Staff"
+            $TargetGroup = "amis-all@archcapservices.com"
+
+            "TargetGroup=$($TargetGroup)" >> $env:GITHUB_ENV
+
+        - name: Send email on failure of preceeding step
+          if: success()
+          env:
+            action_link: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
+          run: |
+
+            Write-Host "INFO: Sending email"
+            $body = "Sync DL Members ${{ env.TargetGroup }} script failed/cancelled.  Please check action link<br>"
+            $body += "<br>Github action run url: <a href=""${{ env.action_link }}"">${{ env.action_link }}</a>"
+            $smtpserver = "relay.corp.archcapservices.com"
+            $smtp = New-Object Net.Mail.SmtpClient($smtpserver)
+            $msg = New-Object Net.Mail.MailMessage
+            $msg.From = "Reports@archgroup.com"
+            $msg.ReplyTo = "No_Reply@archgroup.com"
+            $msg.To.Add("AMIS-PlatformEnterpriseMessaging@archgroup.com")
+            $msg.subject = "ERROR - Sync DL Members ${{ env.TargetGroup }} script"
+            $msg.IsBodyHtml = $true 
+            $msg.body = $body
+
+            $msg.body
