@@ -1,6 +1,7 @@
-name: Sync_DL_Members
+name: Sync DL
 
-on: workflow_dispatch
+on:
+  workflow_dispatch:
 
 jobs:
     Sync_DL_Members:
@@ -8,6 +9,12 @@ jobs:
       runs-on: windows-latest
 
       steps:
+        - name: Echo out the input variables
+          run: |
+            echo 'testing Ubuntu'
+
+        ## Run PS1 Script
+        - uses: actions/checkout@v2
         - name: Run Sync-DLMembers.ps1
           run: |
             $SourceGroup = "AMIS - All Staff"
