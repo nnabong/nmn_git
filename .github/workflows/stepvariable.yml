@@ -4,7 +4,7 @@ on: workflow_dispatch
 
 jobs:
     Sync_DL_Members:
-      name: Test Variables for use in subsequent Jobs
+      name: Sync DL Members AMIS - All
       runs-on: windows-latest
 
       steps:
@@ -15,5 +15,7 @@ jobs:
             $SourceGroup = "AMIS - All Staff"
             $TargetGroup = "amis-all@archcapservices.com"
 
-            "TargetGroup=$($TargetGroup)" >> $env:GITHUB_ENV
+            echo $SourceGroup
+            echo $TargetGroup
 
+            "TargetGroup=$($TargetGroup)" >> $env:GITHUB_ENV
