@@ -20,5 +20,5 @@ jobs:
             $SourceGroup = "AMIS - All Staff"
             $TargetGroup = "amis-all@archcapservices.com"
 
-            echo $SourceGroup
-            echo $TargetGroup
+            echo "$SourceGroup"
+            echo "$TargetGroup"
