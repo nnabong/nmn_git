@@ -4,12 +4,12 @@ on:
   workflow_dispatch:
 
 jobs:
-    test_dlmembers:
-      name: Test DL Members
-      runs-on: windows-latest
+  test_dlmembers:
+    name: Test DL Members
+    runs-on: windows-latest
       
-      steps:
-        - name: Run test_dlmembers
-          run: |
-            $SourceGroup = "sourceDL"
-            $TargetGroup = "targetDL"
+    steps:
+      - name: Run test_dlmembers
+        run: |
+          $SourceGroup = "sourceDL"
+          $TargetGroup = "targetDL"
