@@ -1,4 +1,4 @@
-name: Sync DL Members AMIS - All
+name: Sync_DL_Members
 
 on: workflow_dispatch
 
