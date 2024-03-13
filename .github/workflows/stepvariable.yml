@@ -1,13 +1,11 @@
 name: Sync DL Members AMIS - All
 
-on:
-  schedule:
-    - cron: '0 20 * * *'  # run every day @ 12AM
-  workflow_dispatch:
+on: workflow_dispatch
 
 jobs:
     Sync_DL_Members:
-      name: Sync DL Members AMIS - All
+      name: Test Variables for use in subsequent Jobs
+      runs-on: windows-latest
 
       steps:
         - uses: actions/checkout@v3
