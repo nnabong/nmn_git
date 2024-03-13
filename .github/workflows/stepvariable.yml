@@ -1,24 +1,40 @@
-name: Sync DL
+#nmn-test
 
-on:
-  workflow_dispatch:
+name: Sync test
+
+#on: [push]
+on: workflow_dispatch
 
 jobs:
-    Sync_DL_Members:
-      name: Sync DL Members AMIS - All
-      runs-on: windows-latest
+  initialize_vars:
+    name: Sync test
+    runs-on: windows-latest    
+    steps:
+      - name: Initialize
+        id: initialize
+        run: |
+          $AppID = "Application1234"
+          $TenantID = @(
+            "Tenant10001",
+            "Tenant20002",
+            "Tenant30003"
+          )
+          #echo "AppID=$($AppID)" | Out-File -FilePath $env:GITHUB_ENV -Append
+          #echo "TenantID=$($TenantID)" | Out-File -FilePath $env:GITHUB_ENV -Append
 
-      steps:
-        - name: Echo out the input variables
-          run: |
-            echo 'testing Ubuntu'
+          "AppID2023=$($AppID)" >> $env:GITHUB_ENV
+          "TenantID2023=$($TenantID)" >> $env:GITHUB_ENV
 
-        ## Run PS1 Script
-        - uses: actions/checkout@v2
-        - name: Run Sync-DLMembers.ps1
-          run: |
-            $SourceGroup = "AMIS - All Staff"
-            $TargetGroup = "amis-all@archcapservices.com"
+  print_vars:
+    name: Print Variables
+    needs: [initialize_vars]
+    runs-on: windows-latest
 
-            echo "$SourceGroup"
-            echo "$TargetGroup"
+    steps:
+      - name: Print
+        run: |
+          $app = "${{ env.AppID2023 }}"
+          $tenant = "${{ env.TenantID2023 }}"
+  
+          echo "$($app) and $($tenant)"
+          echo $app.length
